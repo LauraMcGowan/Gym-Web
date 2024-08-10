@@ -1,2 +1,2 @@
-# Gym-Web
+# react
 gym website using react 
