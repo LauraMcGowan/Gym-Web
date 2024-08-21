@@ -1,0 +1,68 @@
+/* Basic styles for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    margin-right: 20px;
+  }
+  
+  .navbar-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar-toggle {
+      display: flex;
+    }
+  
+    .navbar-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 6px;
+      right: 0;
+      background-color: #333;
+      width: 10%;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s ease;
+    }
+  
+    .navbar-links.open {
+      height: 20px; /* Adjust this based on the number of links */
+    }
+  
+    .navbar-links li {
+      margin: 10px 0;
+      text-align: center;
+    }
+  }
+  

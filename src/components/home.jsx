@@ -1,11 +1,11 @@
 import React from "react";
 import logo from "./assets/logo.png";
 
-const About = () => {
+const Home = () => {
   return (
-    
         <img src={logo} alt="img" />
   );
 };
 
-export default About;
+export default Home;
+
