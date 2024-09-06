@@ -1,12 +1,12 @@
 import React from 'react';
-import matthew from "./assets/matthew.png";
-import tony from "./assets/tony.png";
-import chris from "./assets/chris.png";
-import nadia from "./assets/nadia.png";
-import jonathan from "./assets/jonathan.png";
-import bex from "./assets/bex.png";
-import derek from "./assets/derek.png";
-import './MeetTheTeam.css'; // for styling 
+import matthew from "../assets/matthew.png";
+import tony from "../assets/tony.png";
+import chris from "../assets/chris.png";
+import nadia from "../assets/nadia.png";
+import jonathan from "../assets/jonathan.png";
+import bex from "../assets/bex.png";
+import derek from "../assets/derek.png"
+import '../styling/meetTheTeam.css';
 
 const teamMembers = [
   { name: 'Matthew', role: 'Level 3 Personal Trainer', image: matthew },
@@ -27,7 +27,7 @@ const MeetTheTeam = () => {
       <main className="team-members">
         {teamMembers.map((member, index) => (
           <div key={index} className="team-member">
-            <img src={member.image} alt={member.name} />
+            <img src={member} alt={member.name} />
             <p>{member.name}</p>
             <p>{member.role}</p>
           </div>
