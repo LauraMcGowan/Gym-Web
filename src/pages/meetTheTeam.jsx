@@ -5,6 +5,7 @@ import chris from "../assets/chris.png";
 import nadia from "../assets/nadia.png";
 import jonathan from "../assets/jonathan.png";
 import bex from "../assets/bex.png";
+
 import derek from "../assets/derek.png";
 import '../styling/meetTheTeam.css';
 
