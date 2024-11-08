@@ -1,13 +1,21 @@
 import React from "react";
-import home from "../styling/home.css"
+// eslint-disable-next-line no-unused-vars
+import home from "../styling/home.css";
 import logo from "../assets/jpslogo.png";
 
 function Home() {
+  const getCurrentMonthForCalendly = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); 
+    return `${year}-${month}`;
+  };
+
   return (
     <main>
       <section className="Welcome">
         &nbsp;
-        <img src={logo} className="App-logo" alt="JPS Gym logo" />
+        <img src={logo} className="animated-logo" alt="JPS Gym logo" />
         &nbsp;
         <h1>Welcome to JPSGYM!</h1>
         <p>
@@ -20,7 +28,7 @@ function Home() {
         <h1>About Us</h1>
         <p>
           When JP's opened back in June 2018 for the first time, the mission
-          was clear...  To inspire, educate, and permanently change the lives
+          was clear... To inspire, educate, and permanently change the lives
           of everyone who walks in its doors. Not only did we want to
           provide the members with a gym that had the best equipment from
           companies like Atlantis, Cybex, Nautilus, Life Fitness, Prime,
@@ -31,7 +39,7 @@ function Home() {
           the door, and whether you're a beginner or an advanced athlete,
           we've got you covered! The goal for 2025 is to be Scotland's best
           specialized facility! The atmosphere is relaxed, friendly, and
-          feels like a home away from home, just like JP himself intended. 
+          feels like a home away from home, just like JP himself intended.
           Here we have a passion for fitness, strive for excellence, and
           promise you'll not find a more diverse, welcoming gym around. This
           is your life, our passion, let's share it together.
@@ -49,9 +57,7 @@ function Home() {
 
       <section className="Contact">
         <h1>Get in Touch</h1>
-        <p>
-          Please feel free to reach out to us with any questions or comments!
-        </p>
+        <p>Please feel free to reach out to us with any questions or comments!</p>
         <form className="contact-form">
           <input
             type="text"
@@ -77,8 +83,16 @@ function Home() {
       </section>
 
       <section className="Booking">
+      &nbsp;
         <h2>To book a gym tour</h2>
-        <button className="booking-button">Book Now</button>
+        &nbsp;
+        <a
+          href={`https://calendly.com/johnpaulpt/15min?month=${getCurrentMonthForCalendly()}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="booking-button">Book Now</button>
+        </a>
       </section>
 
       <section className="Location">
