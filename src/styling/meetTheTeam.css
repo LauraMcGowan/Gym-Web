@@ -38,6 +38,12 @@ body, html {
   transition: transform 0.3s ease;
 }
 
+
+.team-member a {
+  margin-top: 8px;
+}
+
+
 .team-member img {
   width: 100%;
   height: auto;
@@ -50,6 +56,8 @@ body, html {
   color: #555;
   margin: 5px 0;
 }
+
+
 
 .team-member:hover {
   transform: translateY(-5px);

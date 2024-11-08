@@ -1,0 +1,143 @@
+ :root {
+    --bg-color: #000000; /* Changed to full black */
+    --card-bg-color: #1c1c1e; /* Darker card background for black theme */
+    --text-color-dark: #ffffff; /* White text */
+    --text-color-light: #b0b0b0; /* Lighter text for contrast */
+    --accent-color: #2980b9; /* Highlight color, can be kept as is */
+    --highlight-color: #3498db; /* Slightly brighter blue for hover */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color-dark);
+  }
+  
+  .container {
+    padding: 2rem;
+    min-height: 100vh;
+    background-image: url('../assets/dogs.png'); /* Optional background image */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #b0b0b0;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: var(--card-bg-color);
+    border: 1px solid #333333; /* Darker border to match the theme */
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-color-light);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  }
+  
+  .card.highlighted {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 10px rgba(41, 128, 185, 0.5); /* Enhanced glow effect */
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+  }
+  
+  .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color-light);
+    margin-bottom: 1rem;
+  }
+  
+  .feature-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-item {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkmark {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+  }
+  
+  .join-button {
+    background-color: var(--accent-color);
+    color: var(--text-color-dark);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: auto;
+  }
+  
+  .join-button:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.05);
+  }
+  
+  .notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: var(--text-color-dark);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+ 
+   @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    } 
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .card {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .title {
+      font-size: 1.2rem;
+    }
+  } 
+  
