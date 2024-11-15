@@ -7,24 +7,21 @@ import Home from "./pages/home";
 import MeetTheTeam from "./pages/meetTheTeam";
 import Memberships from "./pages/memberships";
 import Shop from "./pages/shop";
-import JaminDanceAcademy from "./pages/jaminDanceAcademy";
-import SignUp from "./pages/signUp";
+import Classes from "./pages/classes";
+import InjuryRehab from "./pages/injuryRehab";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <MeetTheTeam />
         <Routes>
-          {}
-          <Route path="/" element={<Home />} />
-          <Route path="/" element={<MeetTheTeam />} />
-          <Route path="/" element={<Memberships />} />
-          <Route path="/" element={<Shop />} />
-          <Route path="/" element={<JaminDanceAcademy />} />
-          <Route path="/" element={<SignUp />} />
-          {}
+          <Route path="/home" element={<Home />} />
+          <Route path="/meet-the-team" element={<MeetTheTeam />} />
+          <Route path="/memberships" element={<Memberships />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/injury-rehab" element={<InjuryRehab />} />
+          <Route path="/classes" element={<Classes />} />
         </Routes>
         <Footer />
       </div>
