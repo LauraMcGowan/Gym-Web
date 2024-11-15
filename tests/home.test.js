@@ -1,20 +1,80 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect"; // for the additional matchers like 'toBeInTheDocument'
-import Home from "./Home";
-import logo from "./assets/logo.png";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import Home from "../src/pages/home";
+import "../src/assets/jpslogo.png";
 
-jest.mock("./assets/logo.png", () => "logo.png"); // Mock the image import
+jest.mock("../src/assets/jpslogo.png", () => "jpslogo.png");
+describe("Home components", () => {
+  test("renders the Welcome section with logo, title, and description", () => {
+    render(<Home />);
 
-describe("Home Component", () => {
-  it("should render the logo image with correct src and alt attributes", () => {
-    const { getByAltText } = render(<Home />); // Render the Home component
-    const imageElement = getByAltText("img"); // Get the image element by its alt text
+    // Check for the logo
+    const logo = screen.getByAltText("JPS Gym logo");
+    expect(logo).toBeInTheDocument();
+    expect(logo).toHaveAttribute("src", "jpslogo.png");
 
-    // Assert that the image element is in the document
-    expect(imageElement).toBeInTheDocument();
-
-    // Assert that the image element has the correct src attribute
-    expect(imageElement).toHaveAttribute("src", "logo.png");
+    // Check for the welcome message
+    expect(screen.getByText("Welcome to JPSGYM!")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Join JP's, visit for the day, and even invest in our merchandise below!"
+      )
+    ).toBeInTheDocument();
   });
+
+  test("renders the About section with mission and opening hours", () => {
+    render(<Home />);
+
+    // Check for the About Us heading and mission text
+    expect(screen.getByText("About Us")).toBeInTheDocument();
+    expect(
+      screen.getByText(/When JP's opened back in June 2018/i)
+    ).toBeInTheDocument();
+
+    // Check for Opening Hours heading and list items
+    expect(screen.getByText("Opening Hours")).toBeInTheDocument();
+    expect(screen.getByText("Monday to Friday: 9am-7pm")).toBeInTheDocument();
+    expect(screen.getByText("Saturday: 9am-4pm")).toBeInTheDocument();
+    expect(screen.getByText("Sunday: 12-3pm")).toBeInTheDocument();
+  });
+
+  test("renders the Contact section with form fields", () => {
+    render(<Home />);
+
+    // Check for the Contact Us heading
+    expect(screen.getByText("Get in Touch")).toBeInTheDocument();
+
+    // Check for the form inputs
+    expect(screen.getByPlaceholderText("Your Name")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Your Email")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Your Message")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Send Message" })
+    ).toBeInTheDocument();
+  });
+
+  test("renders the Booking section with the correct Calendly link", () => {
+    render(<Home />);
+
+    // Check for the booking button and link
+    const bookingButton = screen.getByRole("button", { name: "Book Now" });
+    expect(bookingButton).toBeInTheDocument();
+    const bookingLink = screen.getByRole("link", { name: "Book Now" });
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    expect(bookingLink).toHaveAttribute(
+      "href",
+      `https://calendly.com/johnpaulpt/15min?month=${year}-${month}`
+    );
+  });
+
+  // test("getCurrentMonthForCalendly function returns the correct format", () => {
+  //   const homeComp = new Home();
+  //   const currentDate = new Date();
+  //   const year = currentDate.getFullYear();
+  //   const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+  //   expect(homeComp.getCurrentMonthForCalendly()).toBe(`${year}-${month}`);
+  // });
 });
