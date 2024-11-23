@@ -1,6 +1,7 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
-import home from "../styling/home.css";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import "../styling/home.css";
 import logo from "../assets/jpslogo.png";
 
 function Home() {
@@ -10,6 +11,23 @@ function Home() {
     const month = String(now.getMonth() + 1).padStart(2, '0'); 
     return `${year}-${month}`;
   };
+
+  const handleStandardMembershipClick = () => {
+    window.open("https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF001K6SZBKW6JH7FN83H664BY54A4S&initial=%2Fcollect-customer-details", "_blank");
+  };
+
+  const handleNhsMembershipClick = () => {
+    window.open("https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF001K6T1DYWN37HQ2H3PYJ8ENT75MK&initial=%2Fcollect-customer-details", "_blank");
+  };
+
+  const handlePlatinumMembershipClick = () => {
+    window.open("https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF001K6T2XBWTDEBP9D60W579CRZ6TW&initial=%2Fcollect-customer-details", "_blank");
+  };
+
+  const handleOffshoreMembershipClick = () => {
+    window.open("https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF001K6T3R3CE97K8CQNEVM6TXG0Q7H&initial=%2Fcollect-customer-details", "_blank");
+  };
+
 
   return (
     <main>
@@ -55,6 +73,14 @@ function Home() {
         </ul>
       </section>
 
+      <section className="MembershipOptions">
+        <h1>Looking to join us?</h1>
+        <button className="standard-membership" onClick={handleStandardMembershipClick}>Standard membership £35 per month</button>
+        <button className="nhs-membership" onClick={handleNhsMembershipClick}>NHS/blue light/armed forces £30 per month</button>
+        <button className="platinum-membership" onClick={handlePlatinumMembershipClick}>Platinum 60+ £30 per month</button>
+        <button className="offshore-membership" onClick={handleOffshoreMembershipClick}>Offshore £275 yearly</button>
+      </section>
+
       <section className="Contact">
         <h1>Get in Touch</h1>
         <p>Please feel free to reach out to us with any questions or comments!</p>
@@ -83,7 +109,7 @@ function Home() {
       </section>
 
       <section className="Booking">
-      &nbsp;
+        &nbsp;
         <h2>To book a gym tour</h2>
         &nbsp;
         <a
@@ -104,10 +130,28 @@ function Home() {
           <br />
           Phone: 07817317301
         </p>
+        <MapContainer
+      center={[55.85477382909784, -4.023143702544617]} // Coordinates for coatbridge 
+      zoom={20}
+      style={{ height: "400px", width: "100%" }}
+    >
+      Add a tile layer to provide map tiles
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      
+      {/* Add a marker */}
+      <Marker position={[55.85477382909784, -4.023143702544617]}>
+        <Popup>
+          JPS Gym <br /> Linburn Business Park Unit 8 Brown Street Coatbridge ML5 4AS
+        </Popup>
+      </Marker>
+    </MapContainer>
+
       </section>
     </main>
   );
 }
 
 export default Home;
-

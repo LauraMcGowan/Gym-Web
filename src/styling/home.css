@@ -153,7 +153,7 @@ main {
 
 .contact-button {
   padding: 12px 30px;
-  background-color: #4e3d38; /* Accent color */
+  background-color:  #818b95; /* Accent color */
   color: white;
   font-size: 1.2em;
   border: none;
@@ -234,6 +234,85 @@ main {
 
   .Welcome .App-logo {
     width: 120px;
+  }
+}
+
+.MembershipOptions {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.MembershipOptions h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #f7f3f3;
+}
+
+.MembershipOptions button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #111;
+  background-color: #818b95;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.MembershipOptions button:hover {
+  background-color: #818b95;
+}
+
+.MembershipOptions .standard-membership {
+  background-color: #656c74;
+}
+
+.MembershipOptions .nhs-membership {
+  background-color: #656c74;
+}
+
+.MembershipOptions .platinum-membership {
+  background-color: #656c74;
+}
+
+.MembershipOptions .offshore-membership {
+  background-color: #656c74;
+}
+
+/* Container for the map */
+.map-container {
+  height: 400px; /* Set the height of the map */
+  width: 100%;   /* Make the map take the full width of its parent */
+  border: 2px solid #ccc; /* Optional: Add a border for styling */
+  border-radius: 8px; /* Optional: Rounded corners for a modern look */
+  overflow: hidden; /* Ensure no content overflows the map container */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style for the popup content */
+.leaflet-popup-content {
+  font-family: Arial, sans-serif; /* Font style for popup text */
+  font-size: 14px; /* Font size */
+  color: #333; /* Text color */
+  line-height: 1.5; /* Line height for readability */
+}
+
+/* Optional: Style for the popup close button */
+.leaflet-popup-close-button {
+  color: #555; /* Close button color */
+  font-size: 16px; /* Size of the close button */
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 300px; /* Adjust height for smaller screens */
   }
 }
 

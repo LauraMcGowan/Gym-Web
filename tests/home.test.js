@@ -5,7 +5,7 @@ import Home from "../src/pages/home";
 import "../src/assets/jpslogo.png";
 
 jest.mock("../src/assets/jpslogo.png", () => "jpslogo.png");
-describe("Home components", () => {
+describe("Home page", () => {
   test("renders the Welcome section with logo, title, and description", () => {
     render(<Home />);
 
@@ -69,12 +69,4 @@ describe("Home components", () => {
       `https://calendly.com/johnpaulpt/15min?month=${year}-${month}`
     );
   });
-
-  // test("getCurrentMonthForCalendly function returns the correct format", () => {
-  //   const homeComp = new Home();
-  //   const currentDate = new Date();
-  //   const year = currentDate.getFullYear();
-  //   const month = String(currentDate.getMonth() + 1).padStart(2, "0");
-  //   expect(homeComp.getCurrentMonthForCalendly()).toBe(`${year}-${month}`);
-  // });
 });
