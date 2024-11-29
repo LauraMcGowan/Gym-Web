@@ -69,4 +69,8 @@ describe("Home page", () => {
       `https://calendly.com/johnpaulpt/15min?month=${year}-${month}`
     );
   });
+
+  test("renders the map icon", () => {
+    expect(screen.getByAltText("Map icon")).toBeInTheDocument();
+  });
 });

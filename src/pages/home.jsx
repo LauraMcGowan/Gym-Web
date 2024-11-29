@@ -3,6 +3,14 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styling/home.css";
 import logo from "../assets/jpslogo.png";
+import L from "leaflet";
+
+const customIcon = L.icon({
+  iconUrl: logo,
+  iconSize: [45, 45],
+  iconAnchor: [22, 94], 
+  popupAnchor: [-3, -76] 
+});
 
 function Home() {
   const getCurrentMonthForCalendly = () => {
@@ -131,24 +139,20 @@ function Home() {
           Phone: 07817317301
         </p>
         <MapContainer
-      center={[55.85477382909784, -4.023143702544617]} // Coordinates for coatbridge 
-      zoom={20}
-      style={{ height: "400px", width: "100%" }}
-    >
-      Add a tile layer to provide map tiles
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      
-      {/* Add a marker */}
-      <Marker position={[55.85477382909784, -4.023143702544617]}>
-        <Popup>
-          JPS Gym <br /> Linburn Business Park Unit 8 Brown Street Coatbridge ML5 4AS
-        </Popup>
-      </Marker>
-    </MapContainer>
-
+          center={[55.85477382909784, -4.023143702544617]} // Coordinates for Coatbridge
+          zoom={20}
+          style={{ height: "400px", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={[55.85477382909784, -4.023143702544617]} icon={customIcon}>
+            <Popup>
+              JPS Gym <br /> Linburn Business Park Unit 8 Brown Street Coatbridge ML5 4AS
+            </Popup>
+          </Marker>
+        </MapContainer>
       </section>
     </main>
   );
